@@ -2,6 +2,23 @@
 // apps, the browser's share sheet where it can share files, or a download. Nothing is uploaded.
 import { MOBILE, shareExportBlob } from './mobile.js'
 import { t } from './i18n-core.js'
+import { setBrandLogo } from './card-draw.js'
+
+// The logo in a card's footer, loaded once. Always settles, so a card never waits on it for long:
+// without the image the card simply goes out with the name alone.
+let logoLoad = null
+export function loadBrandLogo(src = 'icon-180.png', waitMs = 1500) {
+  if (logoLoad) return logoLoad
+  logoLoad = new Promise(resolve => {
+    if (typeof Image === 'undefined') { resolve(); return }
+    const image = new Image()
+    const timer = setTimeout(() => { logoLoad = null; resolve() }, waitMs)
+    image.onload = () => { clearTimeout(timer); setBrandLogo(image); resolve() }
+    image.onerror = () => { clearTimeout(timer); logoLoad = null; resolve() }
+    image.src = src
+  })
+  return logoLoad
+}
 
 /** A canvas of the given size, its context, and a measure(text, weight, size) on it. null without canvas support. */
 export function makeCanvas(width, height, family) {

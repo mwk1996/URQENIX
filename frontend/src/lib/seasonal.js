@@ -26,7 +26,6 @@ export const THEMES = [
     workoutTitle: 'Also during workouts', workoutNote: 'A cobweb in the header, bats behind the rest timer, pumpkins on the finish screen. Never on your sets.',
     during: 'Spiders, bats and one shy pumpkin until the end of October. Never during a workout.',
     back: 'Back next October. The spiders are on holiday.',
-    appIcon: 'halloween', appIconTitle: 'Try the Halloween app icon',
   },
   {
     id: 'christmas', title: 'Christmas', icon: 'gift', tint: 'var(--red)',
@@ -35,7 +34,6 @@ export const THEMES = [
     workoutTitle: 'Also during workouts', workoutNote: 'A few snowflakes behind the cards, a bauble in the header, presents on the finish screen. Never on your sets.',
     during: 'Snow, fairy lights, a sleigh and an advent calendar until the end of December. Never on your sets.',
     back: 'Back next December. The elves are on a tea break.',
-    appIcon: 'christmas', appIconTitle: 'Try the Christmas app icon',
   },
 ]
 export const THEME_IDS = THEMES.map(th => th.id)

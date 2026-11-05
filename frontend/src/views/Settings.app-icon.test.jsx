@@ -99,12 +99,10 @@ describe('App icon row in Look & Home', () => {
 })
 
 describe('Seasonal themes: the Halloween icon shortcut', () => {
-  it.each(['ios', 'android'])('shows on the phone while Halloween is on and opens the picker (%s)', async platform => {
+  it.each(['ios', 'android'])('is not offered on the phone, with no Halloween icon to try (%s)', async platform => {
     globalThis.Capacitor = { getPlatform: () => platform }
     await mount('themes')
-    expect(shortcut()).toBeTruthy()
-    await act(async () => { shortcut().click() })
-    expect(mocks.nav).toHaveBeenCalledWith('/settings/look', { state: { find: 'App icon' } })
+    expect(shortcut()).toBeFalsy()
   })
 
   it('stays away when Halloween is off', async () => {

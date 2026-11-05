@@ -9,8 +9,8 @@ package ch.duartesantos.opengym;
 final class AppIcons {
     private AppIcons() {}
 
-    static final String[] IDS = {"default", "light", "mono", "neon", "sky", "orange", "pink", "violet", "halloween", "christmas"};
-    static final String[] ALIASES = {"IconDefault", "IconLight", "IconMono", "IconNeon", "IconSky", "IconOrange", "IconPink", "IconViolet", "IconHalloween", "IconChristmas"};
+    static final String[] IDS = {"default"};
+    static final String[] ALIASES = {"IconDefault"};
 
     /** The alias for an icon id, or null for an id this build does not have. */
     static String aliasFor(String id) {

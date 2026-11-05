@@ -14,7 +14,7 @@ import { useWrappedUI } from '../lib/wrapped-ui.js'
 import { yearStats, withYear, wrappedOf } from '../lib/wrapped.js'
 import { wrappedCards, layoutWrappedCard, drawWrappedCard } from '../lib/wrapped-cards.js'
 import { cardPalette } from '../lib/card-draw.js'
-import { makeCanvas, toPng, currentAccent, isRtl } from '../lib/share-image.js'
+import { makeCanvas, toPng, currentAccent, isRtl, loadBrandLogo } from '../lib/share-image.js'
 import { viewAspect, CARD_FONT } from '../lib/workout-card.js'
 import { reducedMotion } from '../lib/seasonal.js'
 import { t, useLang, dateLocale } from '../lib/i18n.js'
@@ -33,6 +33,7 @@ export async function wrappedCardImage(card, { format, style, year, body }) {
   const layout = layoutWrappedCard(card, { measure: probe.measure, format, rtl: isRtl(), year, map: shape ? { aspect: viewAspect(shape.front) } : null })
   const c = makeCanvas(layout.width, layout.height, CARD_FONT)
   if (!c) return null
+  await loadBrandLogo()
   drawWrappedCard(c.ctx, layout, colors, shape ? { body: shape, levels: card.map } : null)
   return toPng(c.canvas)
 }

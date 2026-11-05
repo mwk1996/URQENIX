@@ -2,7 +2,7 @@
 // (workouts, volume, records, streak), the muscle it hit most, and the brand. Drawn on the device
 // with the share cards' palette and footer (lib/card-draw.js); shared through components/ShareCard.jsx.
 import { FORMATS, cardPalette, drawBrand, roundRect } from './card-draw.js'
-import { makeCanvas, toPng, currentAccent, isRtl } from './share-image.js'
+import { makeCanvas, toPng, currentAccent, isRtl, loadBrandLogo } from './share-image.js'
 import { CARD_FONT } from './workout-card.js'
 
 /**
@@ -58,6 +58,7 @@ export async function recapCardImage(words, { format = 'story', style = 'dark' }
   const { width, height } = FORMATS[format] || FORMATS.story
   const c = makeCanvas(width, height, CARD_FONT)
   if (!c) return null
+  await loadBrandLogo()
   drawRecapCard(c.ctx, words, { width, height, colors: cardPalette(style, currentAccent()), rtl: isRtl() })
   return toPng(c.canvas)
 }

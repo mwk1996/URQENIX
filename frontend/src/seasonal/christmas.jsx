@@ -7,6 +7,7 @@ import { onceToday, doneToday, reducedMotion } from '../lib/seasonal.js'
 import { DOORS, LAYOUT, inAdvent, adventOf, doorState, openDoor, markDone, nextDoor } from '../lib/advent.js'
 import { MOBILE } from '../lib/mobile.js'
 import { appIconState, setAppIcon } from '../lib/app-icon.js'
+import { APP_ICON_IDS } from '../lib/app-icon-variants.js'
 import { yearStats, workoutsOfYear } from '../lib/wrapped.js'
 import { bestWeightForEntry, defaultConfig } from '../lib/history.js'
 import { EXIDX } from '../lib/exercises.js'
@@ -310,7 +311,7 @@ async function wearFestiveIcon() {
 function IconSuggest() {
   const [show, setShow] = useState(false)
   useEffect(() => {
-    if (!MOBILE || asked()) return
+    if (!MOBILE || asked() || !APP_ICON_IDS.includes('christmas')) return
     let live = true
     appIconState().then(s => { if (live && s && s.name !== 'christmas') setShow(true) })
     return () => { live = false }
@@ -514,7 +515,7 @@ function StretchDoor({ close }) {
 function SpecialDoor() {
   const [canIcon, setCanIcon] = useState(false)
   useEffect(() => {
-    if (!MOBILE) return
+    if (!MOBILE || !APP_ICON_IDS.includes('christmas')) return
     let live = true
     appIconState().then(s => { if (live && s && s.name !== 'christmas') setCanIcon(true) })
     return () => { live = false }

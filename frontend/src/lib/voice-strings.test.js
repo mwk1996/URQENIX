@@ -80,7 +80,7 @@ describe('the Android shortcuts', () => {
 
   it('is on every launcher icon (a new alias needs it too)', () => {
     const aliases = [...manifest.matchAll(/<activity-alias[\s\S]*?<\/activity-alias>/g)].map(m => m[0]).filter(a => a.includes('category.LAUNCHER'))
-    expect(aliases.length).toBeGreaterThan(1)
+    expect(aliases.length).toBeGreaterThan(0)
     for (const a of aliases) expect(a, /android:name="([^"]+)"/.exec(a)[1]).toContain('android:resource="@xml/shortcuts"')
   })
 })

@@ -94,7 +94,7 @@ import { weeklyWeights } from './lib/bodyweight.js'
 import { workoutText } from './lib/workout-text.js'
 import { workoutCardModel, layoutWorkoutCard, drawWorkoutCard, viewAspect, CARD_FONT } from './lib/workout-card.js'
 import { cardPalette } from './lib/card-draw.js'
-import { makeCanvas, toPng, currentAccent, isRtl } from './lib/share-image.js'
+import { makeCanvas, toPng, currentAccent, isRtl, loadBrandLogo } from './lib/share-image.js'
 import ShareCardSheet from './components/ShareCard.jsx'
 import { streakInfo } from './lib/streak.js'
 import { copyText } from './lib/clipboard.js'
@@ -3341,6 +3341,7 @@ async function workoutCardImage(model, { map, body, format, style }) {
   const layout = layoutWorkoutCard(model, { measure: probe.measure, rtl: isRtl(), format, map: shape ? { aspect: viewAspect(shape.front) } : null })
   const c = makeCanvas(layout.width, layout.height, CARD_FONT)
   if (!c) return null
+  await loadBrandLogo()
   drawWorkoutCard(c.ctx, layout, colors, shape ? { body: shape, levels: model.levels } : null)
   return toPng(c.canvas)
 }

@@ -50,30 +50,23 @@ export function cardPalette(style, acc = '#30d158') {
     : { bg: '#000000', surface: '#1c1c1e', tile: '#2c2c2e', label: '#ffffff', label2: '#98989f', acc: a, accText: a, sep: '#38383a', light: false }
 }
 
-// The dumbbell of the app icon (public/icon-512.png) on a 208×72 grid, centred on 0,0.
-const MARK = [[-72, -10, 144, 20], [-80, -36, 20, 72], [-104, -25, 17, 50], [60, -36, 20, 72], [87, -25, 17, 50]]
-export const MARK_ASPECT = 208 / 72
-
-/** The logo mark, `h` high, its left edge at x (its right edge for rtl), centred on y. */
-export function drawMark(ctx, x, y, h, color) {
-  const s = h / 72
-  ctx.save()
-  ctx.translate(x + 104 * s, y)
-  ctx.scale(s, s)
-  ctx.fillStyle = color
-  for (const [rx, ry, rw, rh] of MARK) { roundRect(ctx, rx, ry, rw, rh, 7); ctx.fill() }
-  ctx.restore()
-}
+// The logo image, loaded by lib/share-image.js before a card is drawn. This file stays free of the
+// DOM, and a card without it still has the name.
+let brandLogo = null
+export function setBrandLogo(image) { brandLogo = image }
 
 /**
- * The footer every card ends with: the mark, "URQENIX" with "Gym" in the accent, and the site at
+ * The footer every card ends with: the logo, "URQENIX" with "ENIX" in the accent, and the site at
  * the other end. `y` is the text's baseline. Drawn left to right whatever the language: it is a
  * logo, and a logo does not mirror.
  */
 export function drawBrand(ctx, { x, y, width, colors, family, size = 40 }) {
-  const markH = size * 0.78
-  drawMark(ctx, x, y - size * 0.36, markH, colors.acc)
-  let tx = x + markH * MARK_ASPECT + size * 0.4
+  let tx = x
+  if (brandLogo) {
+    const logoH = size * 1.4
+    ctx.drawImage(brandLogo, x, y - size * 0.36 - logoH / 2, logoH, logoH)
+    tx = x + logoH + size * 0.4
+  }
   ctx.direction = 'ltr'
   ctx.textAlign = 'left'
   ctx.font = `800 ${size}px ${family}`

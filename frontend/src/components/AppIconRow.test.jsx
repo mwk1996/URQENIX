@@ -11,6 +11,20 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true
 
 const m = vi.hoisted(() => ({ state: { supported: true, name: 'default' }, later: false, fail: false, calls: [], toast: null }))
 vi.mock('../lib/mobile.js', () => ({ MOBILE: true }))
+// URQENIX ships one icon, so the row stays hidden (AppIconRow.single.test.jsx). These cover how it
+// works with several, for when more are added.
+vi.mock('../lib/app-icon-variants.js', () => {
+  const APP_ICON_VARIANTS = [
+    { id: 'default', name: 'Original', ios: null, android: 'IconDefault' },
+    { id: 'light', name: 'Light', ios: 'AppIcon-Light', android: 'IconLight' },
+    { id: 'mono', name: 'Mono', ios: 'AppIcon-Mono', android: 'IconMono' },
+    { id: 'sky', name: 'Blue', ios: 'AppIcon-Sky', android: 'IconSky' },
+    { id: 'pink', name: 'Pink', ios: 'AppIcon-Pink', android: 'IconPink' },
+    { id: 'halloween', name: 'Halloween', ios: 'AppIcon-Halloween', android: 'IconHalloween' },
+    { id: 'christmas', name: 'Christmas', ios: 'AppIcon-Christmas', android: 'IconChristmas' },
+  ]
+  return { APP_ICON_VARIANTS, APP_ICON_IDS: APP_ICON_VARIANTS.map(v => v.id) }
+})
 vi.mock('../store/useUI.js', () => ({ useUI: { getState: () => ({ toast: m.toast }) } }))
 // Like the real proxy: `then` is a native call that never settles (lib/app-icon.js keeps it in an object).
 vi.mock('@capacitor/core', () => ({

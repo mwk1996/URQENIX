@@ -16,7 +16,7 @@ export default function AppIconRow() {
     appIconState().then(s => { if (live) setState(s) })
     return () => { live = false }
   }, [])
-  if (!state) return null
+  if (!state || APP_ICON_VARIANTS.length < 2) return null
 
   const pick = async id => {
     if (busy || id === state.name) return

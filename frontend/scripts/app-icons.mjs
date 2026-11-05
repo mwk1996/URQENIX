@@ -13,8 +13,8 @@
  *   android/app/src/main/res/mipmap-<dpi>/ic_launcher_<id>{,_round,_foreground}.png
  *   android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_<id>{,_round}.xml
  *   android/app/src/main/res/values/app_icons.xml             the adaptive icons' background colours
- * The default icon keeps the files @capacitor/assets made for it (docs/MOBILE.md); only its
- * preview comes from here.
+ * The default icon is the URQENIX logo (resources/logo.jpg), so its files and its preview are not
+ * drawn here.
  *
  * Usage: node scripts/app-icons.mjs            write everything
  *        node scripts/app-icons.mjs --check    exit 1 when a committed file differs from a fresh draw */
@@ -260,8 +260,8 @@ export function files(rects = glyph()) {
   const out = []
   const colors = []
   for (const v of APP_ICON_VARIANTS) {
-    out.push([`public/app-icons/${v.id}.png`, () => draw(v, PREVIEW, { rects })])
     if (v.id === 'default') continue
+    out.push([`public/app-icons/${v.id}.png`, () => draw(v, PREVIEW, { rects })])
     if (!v.art) out.push([`resources/icons/${v.id}.svg`, () => svgOf(v, rects)])
     const set = `ios/App/App/Assets.xcassets/${v.ios}.appiconset`
     out.push([`${set}/Contents.json`, () => iosContents])
