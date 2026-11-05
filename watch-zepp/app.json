@@ -1,0 +1,130 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 9990145,
+    "appName": "URQENIX",
+    "appType": "app",
+    "version": {
+      "code": 10404,
+      "name": "1.4.4"
+    },
+    "icon": "icon.png",
+    "vender": "URQENIX",
+    "description": "URQENIX on your wrist: start a routine, log sets with the crown, rest with a ring. Pairs with your own URQENIX server."
+  },
+  "permissions": [
+    "data:os.device.info",
+    "device:os.local_storage",
+    "data:user.hd.heart_rate"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "3.0",
+      "target": "3.0",
+      "minVersion": "3.0"
+    }
+  },
+  "debug": false,
+  "targets": {
+    "common": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index"
+          ]
+        },
+        "app-widget": {
+          "widgets": [
+            {
+              "path": "app-widget/index",
+              "icon": "icon.png",
+              "name": "URQENIX",
+              "runtime": {
+                "type": "js"
+              }
+            }
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "st": "r",
+          "dw": 480
+        },
+        {
+          "st": "s",
+          "dw": 390
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "URQENIX"
+    },
+    "de-DE": {
+      "appName": "URQENIX"
+    },
+    "fr-FR": {
+      "appName": "URQENIX"
+    },
+    "es-ES": {
+      "appName": "URQENIX"
+    },
+    "it-IT": {
+      "appName": "URQENIX"
+    },
+    "pt-PT": {
+      "appName": "URQENIX"
+    },
+    "pt-BR": {
+      "appName": "URQENIX"
+    },
+    "pl-PL": {
+      "appName": "URQENIX"
+    },
+    "hu-HU": {
+      "appName": "URQENIX"
+    },
+    "tr-TR": {
+      "appName": "URQENIX"
+    },
+    "ru-RU": {
+      "appName": "URQENIX"
+    },
+    "uk-UA": {
+      "appName": "URQENIX"
+    },
+    "ar-EG": {
+      "appName": "URQENIX"
+    },
+    "hi-IN": {
+      "appName": "URQENIX"
+    },
+    "bn-BD": {
+      "appName": "URQENIX"
+    },
+    "th-TH": {
+      "appName": "URQENIX"
+    },
+    "ko-KR": {
+      "appName": "URQENIX"
+    },
+    "sv-SE": {
+      "appName": "URQENIX"
+    },
+    "zh-CN": {
+      "appName": "URQENIX"
+    },
+    "zh-TW": {
+      "appName": "URQENIX"
+    }
+  },
+  "defaultLanguage": "en-US"
+}

@@ -1,0 +1,4 @@
+/* URQENIX on the Apple Watch, de: Info.plist. Written by ios/ci/watch-strings.mjs. */
+
+"NSHealthShareUsageDescription" = "URQENIX zeigt deinen Puls während des Trainings und neben jedem Satz.";
+"NSHealthUpdateUsageDescription" = "URQENIX speichert deine Trainings in Apple Health, wenn du das einschaltest.";

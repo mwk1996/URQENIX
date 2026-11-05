@@ -1,0 +1,4 @@
+/* URQENIX on the Apple Watch, fr: Info.plist. Written by ios/ci/watch-strings.mjs. */
+
+"NSHealthShareUsageDescription" = "URQENIX affiche ton pouls pendant la séance et à côté de chaque série.";
+"NSHealthUpdateUsageDescription" = "URQENIX enregistre tes séances dans Apple Santé si tu l’actives.";

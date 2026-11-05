@@ -1,0 +1,4 @@
+/* URQENIX on the Apple Watch, hu: Info.plist. Written by ios/ci/watch-strings.mjs. */
+
+"NSHealthShareUsageDescription" = "Az URQENIX edzés közben és minden sorozat mellett mutatja a pulzusodat.";
+"NSHealthUpdateUsageDescription" = "Az URQENIX az Apple Egészség appba menti az edzéseidet, ha bekapcsolod.";

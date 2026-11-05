@@ -1,0 +1,4 @@
+/* URQENIX on the Apple Watch, ar: Info.plist. Written by ios/ci/watch-strings.mjs. */
+
+"NSHealthShareUsageDescription" = "يعرض URQENIX نبضك أثناء التمرين وبجانب كل مجموعة.";
+"NSHealthUpdateUsageDescription" = "يحفظ URQENIX تمارينك في Apple صحتي إذا فعّلت ذلك.";

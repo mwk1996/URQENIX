@@ -1,0 +1,4 @@
+/* URQENIX on the Apple Watch, th: Info.plist. Written by ios/ci/watch-strings.mjs. */
+
+"NSHealthShareUsageDescription" = "URQENIX แสดงอัตราการเต้นของหัวใจระหว่างฝึกและข้างแต่ละเซ็ต";
+"NSHealthUpdateUsageDescription" = "URQENIX บันทึกการฝึกลงใน Apple Health เมื่อคุณเปิดใช้";
